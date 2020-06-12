@@ -1,18 +1,19 @@
 //import Actions here
-import { ADD_SMURFS } from '../actions'
+import { FETCH_SMURFS } from '../actions'
 
 //initial state 
 
 const initialState = {
   smurfs: {},
+  isFetchingData: false,
 }
 
 export const smurfReducer = (state=initialState, action) => {
   switch(action.type){
-    case ADD_SMURFS:
+    case FETCH_SMURFS:
       return {
         ...state,
-        smurfs: action.payload,
+        isFetchingData: true,
       }
     default:
       return state;
