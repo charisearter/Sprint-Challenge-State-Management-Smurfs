@@ -1,43 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-
 
 //import components
 
 import  SmurfForm  from './SmurfForm'
-
-//Context
-
-import { SmurfContext } from '../context'
-
-const initialState = [
-  {
-    name: "Brainey",
-    age: 200,
-    height: "5cm",
-    id: 0
-  }
-]
+import  SmurfCard  from './SmurfCard'
 
 export default function App() {
-
-  const [smurfs] = useState(initialState);
-  const [newSmurf, setNewSmurf] = useState();
-
-  const addSmurf = item => {
-    setNewSmurf([...smurfs, newSmurf]);
-  };
-  
+  // const [smurfs, setSmurfs] = useState([]); //initial smurfs
+  // const [newSmurf, setNewSmurf] = useState(''); //smurf adding
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
      
-     <SmurfContext.Provider value={{ smurfs, addSmurf }}>
-        <SmurfForm />
-        </SmurfContext.Provider>
+      <SmurfCard />
+        <SmurfForm /> 
       </div>
-    );
-  
+    ); 
 }
 
 

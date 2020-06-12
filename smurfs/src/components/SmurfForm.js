@@ -1,16 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SmurfCard from './SmurfCard'
-import { SmurfContext } from '../context'
 
 //import axios from 'axios';
 
-
-
-
-
 const SmurfForm = () => {
 
-  const {smurfs, addSmurf} = useContext(SmurfContext);
+ 
 
   // const handleFetch = e => {
   //   e.prevemtDefault();
@@ -18,16 +13,10 @@ const SmurfForm = () => {
   // };
 
   return (
+
     <div>
-      {smurfs.map(smurf => {
-        return <SmurfCard 
-        name={smurf.name} 
-        height={smurf.height} 
-        age={smurf.age} 
-        key={smurf.id} 
-        addSmurf={addSmurf}
-        />
-      })}
+      <h2> Somethig to see</h2>
+      <SmurfCard />
     </div>
   )
   
