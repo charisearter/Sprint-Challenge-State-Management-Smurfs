@@ -4,13 +4,7 @@ import { FETCH_SMURFS, ADD_SMURFS } from '../actions'
 //initial state 
 
 const initialState = {
-  smurfs: 
-    {
-      name: '',
-      age: '',
-      height: '',
-      id: Date.now(),
-  },
+  smurfs: [],
   isFetchingData: false,
 }
 
@@ -25,7 +19,7 @@ export const smurfReducer = (state=initialState, action) => {
     case ADD_SMURFS:
       return {
         ...state,
-        smurfs: [...state, action.payload],
+        smurfs:  action.payload,
         isFetchingData:false,
       }
     default:

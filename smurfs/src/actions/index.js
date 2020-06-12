@@ -19,14 +19,18 @@ export const getSmurfs = () => dispatch => {
     console.log('There was an error finding the Smurf Village', err.message));
 };
 
-export const postSmurfs = () => dispatch => {
+export const postSmurfs = (smurf) => dispatch => {
   dispatch({ type: ADD_SMURFS });
   axios
-  .post('http://localhost:3333/smurfs')
+  .post('http://localhost:3333/smurfs', {
+    name: smurf.name,
+    age: smurf.age,
+    height: smurf.height
+  })
   .then((res) => {
     //setSmurfs(res.data);
     console.log('New Smurf found', res.data);
-    dispatch({ type: ADD_SMURFS, }) //set payload after completing form
+    dispatch({ type: ADD_SMURFS, payload: res.data}) //set payload after completing form
   }) //end then
  .catch(err =>
   console.log('There was an error and we are not allowed in the Smurf Village', err.message));

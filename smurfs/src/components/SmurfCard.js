@@ -12,17 +12,27 @@ const SmurfCard = (props) => {
   return (
     <div>
       <div>
-        <h2> Smurf Villagers</h2>
-        <h2> {props.name} </h2>
-        <p> {props.age} </p>
-        <p> {props.height} </p>
-        <p> {props.id} </p>
+        {props.smurfs.map(smurf => {
+          return (
+            <div key={smurf.id}>
+              <h2> {smurf.name} </h2>
+              <p> {smurf.age } </p>
+              <p> {smurf.height } </p>
+            </div>
+          )
+        })}
         
       </div>
       <button onClick={handleFetch}> View the Village </button>
     </div>
   )
 };
+const mSTP = state => {
+  return {
+    smurfs: state.smurfs,
+    isFetchingData: state.isFetchingData
+  }
+}
 
 export default connect(mSTP, {getSmurfs})(SmurfCard);
 

@@ -2,19 +2,30 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postSmurfs } from '../actions';
 
-//import axios from 'axios';
+//import axios from 'axios'
+
+
 
 const SmurfForm = (props) => {
-  const {value, name, age, height } = props;
-  const [form, setForm] = useState();
+ 
+  const [form, setForm] = useState({
+    name:'',
+    age: '',
+    height: ''
+  });
   
+
   const onChange = (e) => {
-  
+  e.persist();
+   setForm({
+     ...form,
+     [e.target.name] : e.target.value
+   })
 };
 
   const handleAdd = e => {
     e.preventDefault();
-    props.postSmurfs();
+    props.postSmurfs(form); //pass in the state of the form
   };
 
   return (
@@ -24,15 +35,15 @@ const SmurfForm = (props) => {
       <form>
         <div>
           <label>Name: &nbsp;
-          <input type='text' placeholder='Name' maxLength='10' value={value.name} onChange={onChange} />
+          <input type='text' placeholder='Name' name='name' maxLength='10' onChange={onChange} />
           </label>
 
           <label>Age: &nbsp;
-          <input type='text' placeholder='Age' maxLength='10' value={value.age} onChange={onChange} />
+          <input type='text' placeholder='Age' name='age' maxLength='10'  onChange={onChange} />
           </label>
 
           <label>Height: &nbsp;
-          <input type='text' placeholder='Height' value={value.height} onChange={onChange} />
+          <input type='text' placeholder='Height' name='height'  onChange={onChange} />
           </label>
         </div>
         <div>
@@ -46,12 +57,12 @@ const SmurfForm = (props) => {
   
 }
 
-const mSTP = state => {
-  return {
-    smurfs: state.smurfs,
-    isFetchingData: state.isFetchingData
-  }
-}
+// const mSTP = state => {
+//   return {
+//     smurfs: state.smurfs,
+//     isFetchingData: state.isFetchingData
+//   }
+// }
 
 
-export default connect(mSTP,{postSmurfs}) (SmurfForm);
+export default connect(null,{postSmurfs}) (SmurfForm);
