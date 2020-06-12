@@ -7,7 +7,7 @@ export const ADD_SMURFS = 'ADD_SMURFS'; // .post request
 
 
 export const getSmurfs = () => dispatch => {
-  dispatch({ type: FETCH_SMURFS });
+  //dispatch({ type: FETCH_SMURFS });
   axios
   .get('http://localhost:3333/smurfs')
   .then(res => {
@@ -19,6 +19,7 @@ export const getSmurfs = () => dispatch => {
     console.log('There was an error finding the Smurf Village', err.message));
 };
 
+//this part works
 export const postSmurfs = (smurf) => dispatch => {
   dispatch({ type: ADD_SMURFS });
   axios

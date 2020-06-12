@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getSmurfs } from '../actions';
 
 const SmurfCard = (props) => {
-
+useEffect(() =>{
+  props.getSmurfs()
+}, []
+)
+console.log(props.smurfs)
   const handleFetch = e => {
     e.preventDefault();
     props.getSmurfs();
