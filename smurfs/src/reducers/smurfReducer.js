@@ -4,7 +4,14 @@ import { FETCH_SMURFS } from '../actions'
 //initial state 
 
 const initialState = {
-  smurfs: {},
+  smurfs: [
+    {
+      name: "Brainey",
+      age: 200,
+      height: "5cm",
+      id: 0
+  }
+],
   isFetchingData: false,
 }
 

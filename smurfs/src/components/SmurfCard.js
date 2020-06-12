@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const SmurfCard = props => {
+
+export default function SmurfCard(props) {
   return (
     <div>
       <div>
@@ -15,11 +15,5 @@ const SmurfCard = props => {
   )
 };
 
-const mSTP = state => {
-  console.log(state)
-  return {
-    smurfs: state.smurfs,
-  };
-};
 
-export default connect(mSTP, {})(SmurfCard);
+
